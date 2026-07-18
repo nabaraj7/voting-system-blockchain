@@ -5,57 +5,56 @@ interface Election {
   status: "past" | "upcoming";
 }
 
-// Placeholder data — replace with data fetched from your contract later
 const elections: Election[] = [
-  {
-    id: "1",
-    title: "General Election 2025",
-    date: "2025-11-10",
-    status: "past",
-  },
-  {
-    id: "2",
-    title: "General Election 2027",
-    date: "2027-03-05",
-    status: "upcoming",
-  },
+  { id: "1", title: "General Election 2025", date: "2025-11-10", status: "past" },
+  { id: "2", title: "General Election 2027", date: "2027-03-05", status: "upcoming" },
 ];
 
 export default function ArchiveSection() {
-  const pastElections = elections.filter((e) => e.status === "past");
-  const upcomingElections = elections.filter((e) => e.status === "upcoming");
+  const past = elections.filter((e) => e.status === "past");
+  const upcoming = elections.filter((e) => e.status === "upcoming");
 
   return (
-    <div className="mt-10 text-center">
-      <h3 className="text-lg font-semibold mb-4 text-white">
-        Past & Future Elections
-      </h3>
+    <div
+      className="rounded-lg border"
+      style={{ borderColor: "var(--border)", background: "var(--card)" }}
+    >
+      <div className="px-8 py-6 border-b" style={{ borderColor: "var(--border)" }}>
+        <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--blue)" }}>
+          Archive
+        </p>
+        <h2 className="font-display font-bold text-xl mt-1" style={{ color: "var(--text)" }}>
+          Past &amp; Upcoming Elections
+        </h2>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-        <div>
-          <h4 className="text-sm text-gray-400 mb-2">Past Elections</h4>
-          {pastElections.length === 0 ? (
-            <p className="text-gray-500 text-sm">No past elections</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x" style={{ borderColor: "var(--border)" }}>
+        <div className="px-8 py-6">
+          <h3 className="text-sm font-semibold mb-3" style={{ color: "var(--muted)" }}>Past</h3>
+          {past.length === 0 ? (
+            <p className="text-sm" style={{ color: "var(--muted)" }}>No past elections</p>
           ) : (
-            <ul className="space-y-1">
-              {pastElections.map((election) => (
-                <li key={election.id} className="text-gray-300 text-sm">
-                  {election.title} — {election.date}
+            <ul className="space-y-2">
+              {past.map((e) => (
+                <li key={e.id} className="text-sm flex justify-between" style={{ color: "var(--text)" }}>
+                  <span>{e.title}</span>
+                  <span className="font-mono" style={{ color: "var(--muted)" }}>{e.date}</span>
                 </li>
               ))}
             </ul>
           )}
         </div>
 
-        <div>
-          <h4 className="text-sm text-gray-400 mb-2">Upcoming Elections</h4>
-          {upcomingElections.length === 0 ? (
-            <p className="text-gray-500 text-sm">No upcoming elections</p>
+        <div className="px-8 py-6">
+          <h3 className="text-sm font-semibold mb-3" style={{ color: "var(--muted)" }}>Upcoming</h3>
+          {upcoming.length === 0 ? (
+            <p className="text-sm" style={{ color: "var(--muted)" }}>No upcoming elections</p>
           ) : (
-            <ul className="space-y-1">
-              {upcomingElections.map((election) => (
-                <li key={election.id} className="text-gray-300 text-sm">
-                  {election.title} — {election.date}
+            <ul className="space-y-2">
+              {upcoming.map((e) => (
+                <li key={e.id} className="text-sm flex justify-between" style={{ color: "var(--text)" }}>
+                  <span>{e.title}</span>
+                  <span className="font-mono" style={{ color: "var(--muted)" }}>{e.date}</span>
                 </li>
               ))}
             </ul>

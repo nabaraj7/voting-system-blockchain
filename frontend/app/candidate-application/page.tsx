@@ -1,7 +1,11 @@
-export default function CandidateApplicationPage(){
+import ElectionStatusHeader from "@/components/ElectionStatusHeader";
+import CandidateForm from "@/components/CandidateForm";
+
+export default function CandidateApplicationPage() {
   return (
-    <div>
-      <h1>Candidate application form</h1>
-    </div>
+    <main className="min-h-screen bg-black text-white px-6 py-10">
+      <ElectionStatusHeader status="Candidate Registration Open" />
+      <CandidateForm />
+    </main>
   );
 }
