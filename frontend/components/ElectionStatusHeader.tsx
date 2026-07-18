@@ -12,34 +12,48 @@ export default function ElectionStatusHeader({
 }: ElectionStatusHeaderProps) {
   const pathname = usePathname();
 
+  const tabs = [
+    { href: "/voter-application", label: "Apply as Voter" },
+    { href: "/candidate-application", label: "Apply as Candidate" },
+  ];
+
   return (
-    <div className="text-center mb-8">
-      <h2 className="text-sm text-gray-400 mb-2">Current Election Status</h2>
-      <p className="mb-4 font-medium text-white">{status}</p>
-
-      <div className="flex justify-center gap-6">
-        <Link
-          href="/voter-application"
-          className={`px-4 py-2 rounded transition-colors ${
-            pathname === "/voter-application"
-              ? "bg-blue-600 text-white"
-              : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-          }`}
-        >
-          Apply as a Voter
-        </Link>
-
-        <Link
-          href="/candidate-application"
-          className={`px-4 py-2 rounded transition-colors ${
-            pathname === "/candidate-application"
-              ? "bg-blue-600 text-white"
-              : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-          }`}
-        >
-          Apply as a Candidate
-        </Link>
+    <div className="mb-8">
+      {/* Notice banner */}
+      <div
+        className="flex items-center gap-3 px-4 py-3 rounded-md mb-6"
+        style={{ background: "var(--sky)", borderLeft: "4px solid var(--blue)" }}
+      >
+        <div>
+          <p className="text-xs font-semibold tracking-wide uppercase" style={{ color: "var(--blue)" }}>
+            Current Election Status
+          </p>
+          <p className="font-display font-bold text-lg" style={{ color: "var(--navy)" }}>
+            {status}
+          </p>
+        </div>
       </div>
+
+      {/* Tabs */}
+      <nav className="flex gap-2 border-b" style={{ borderColor: "var(--border)" }}>
+        {tabs.map((tab) => {
+          const active = pathname === tab.href;
+          return (
+            <Link
+              key={tab.href}
+              href={tab.href}
+              className="px-4 py-2.5 -mb-px text-sm font-medium rounded-t-md transition-colors"
+              style={{
+                borderBottom: active ? "2px solid var(--blue)" : "2px solid transparent",
+                color: active ? "var(--navy)" : "var(--muted)",
+                background: active ? "var(--sky)" : "transparent",
+              }}
+            >
+              {tab.label}
+            </Link>
+          );
+        })}
+      </nav>
     </div>
   );
 }

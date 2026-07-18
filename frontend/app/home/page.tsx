@@ -3,31 +3,36 @@ import ElectionStatusHeader from "@/components/ElectionStatusHeader";
 import ArchiveSection from "@/components/ArchiveSection";
 
 export default function HomePage() {
-  const electionInfo = {
-    date: "2026-08-15",
-    time: "09:00 AM - 05:00 PM",
-  };
+  const electionInfo = { date: "2026-08-15", time: "09:00 AM – 05:00 PM" };
 
   return (
-    <main className="min-h-screen bg-black text-white px-6 py-10">
+    <div>
       <ElectionStatusHeader status="Election Open for Registration" />
 
-      <div className="text-center mb-6">
-        <p className="text-gray-300">
-          Election Info: {electionInfo.date} — {electionInfo.time}
-        </p>
-      </div>
-
-      <div className="text-center mb-10">
+      <div
+        className="rounded-lg border px-8 py-6 flex items-center justify-between"
+        style={{ borderColor: "var(--border)", background: "var(--card)" }}
+      >
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--muted)" }}>
+            Polling Date &amp; Time
+          </p>
+          <p className="font-display font-bold text-lg mt-1" style={{ color: "var(--text)" }}>
+            {electionInfo.date} · {electionInfo.time}
+          </p>
+        </div>
         <Link
-          href="/voter-list"
-          className="underline text-blue-400 hover:text-blue-300"
+          href="/Voter-List"
+          className="px-5 py-2.5 rounded-md text-sm font-semibold text-white shrink-0"
+          style={{ background: "var(--blue)" }}
         >
-          Voter List → click to open new page
+          View Voter List →
         </Link>
       </div>
 
-      <ArchiveSection />
-    </main>
+      <div className="mt-14">
+        <ArchiveSection />
+      </div>
+    </div>
   );
 }
