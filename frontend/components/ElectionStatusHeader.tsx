@@ -20,6 +20,7 @@ export default function ElectionStatusHeader({
   return (
     <div className="mb-8">
       {/* Notice banner */}
+      <Link href="/home" className="block">
       <div
         className="flex items-center gap-3 px-4 py-3 rounded-md mb-6"
         style={{ background: "var(--sky)", borderLeft: "4px solid var(--blue)" }}
@@ -28,11 +29,12 @@ export default function ElectionStatusHeader({
           <p className="text-xs font-semibold tracking-wide uppercase" style={{ color: "var(--blue)" }}>
             Current Election Status
           </p>
-          <p className="font-display font-bold text-lg" style={{ color: "var(--navy)" }}>
+          <p className="font-display font-bold text-lg" style={{ color: "var(--Red)" }}>
             {status}
           </p>
         </div>
       </div>
+      </Link>
 
       {/* Tabs */}
       <nav className="flex gap-2 border-b" style={{ borderColor: "var(--border)" }}>

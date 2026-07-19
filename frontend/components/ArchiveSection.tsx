@@ -20,10 +20,10 @@ export default function ArchiveSection() {
       style={{ borderColor: "var(--border)", background: "var(--card)" }}
     >
       <div className="px-8 py-6 border-b" style={{ borderColor: "var(--border)" }}>
-        <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--blue)" }}>
+        <p className="text-xs font-semibold uppercase tracking-wide text-center" style={{ color: "var(--blue)" }}>
           Archive
         </p>
-        <h2 className="font-display font-bold text-xl mt-1" style={{ color: "var(--text)" }}>
+        <h2 className="font-display font-bold text-xl mt-1 text-center" style={{ color: "var(--text)" }}>
           Past &amp; Upcoming Elections
         </h2>
       </div>

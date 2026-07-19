@@ -15,7 +15,7 @@ export default function HomePage() {
       >
         <div>
           <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--muted)" }}>
-            Polling Date &amp; Time
+            Election Date &amp; Time
           </p>
           <p className="font-display font-bold text-lg mt-1" style={{ color: "var(--text)" }}>
             {electionInfo.date} · {electionInfo.time}
