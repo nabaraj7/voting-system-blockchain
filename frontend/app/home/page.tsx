@@ -15,18 +15,18 @@ export default function HomePage() {
       >
         <div>
           <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--muted)" }}>
-            Polling Date &amp; Time
+            Election Date &amp; Time
           </p>
           <p className="font-display font-bold text-lg mt-1" style={{ color: "var(--text)" }}>
             {electionInfo.date} · {electionInfo.time}
           </p>
         </div>
         <Link
-          href="/Voter-List"
+          href="/voter-list"
           className="px-5 py-2.5 rounded-md text-sm font-semibold text-white shrink-0"
           style={{ background: "var(--blue)" }}
         >
-          View Voter List →
+          View voter list →
         </Link>
       </div>
 

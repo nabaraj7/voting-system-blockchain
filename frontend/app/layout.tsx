@@ -1,20 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import NavBar from "@/components/NavBar";
+import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "Voting System using Blockchain",
-  description: "The Blockchain-Based E-Voting System is a secure, transparent, and decentralized digital voting platform designed to modernize the election process",
+  description:
+    "The Blockchain-Based E-Voting System is a secure, transparent, and decentralized digital voting platform designed to modernize the election process",
 };
 
 export default function RootLayout({
@@ -23,11 +15,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body className="min-h-full flex flex-col antialiased">
+        <Providers>
+          <NavBar />
+          <div className="max-w-4xl mx-auto px-6 py-10 flex-1 w-full">
+            {children}
+          </div>
+        </Providers>
+      </body>
     </html>
   );
 }
